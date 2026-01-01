@@ -1,0 +1,124 @@
+.batch-preview-info-card {
+  background: #e8f5e9;
+  border: 2px solid #66bb6a;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  aspect-ratio: 1;
+  justify-content: space-between;
+}
+
+body.dark-mode .batch-preview-info-card {
+  background: #1b5e20;
+  border-color: #81c784;
+}
+
+.preview-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preview-info-title {
+  font-weight: 600;
+  color: #2e7d32;
+  font-size: 0.9rem;
+}
+
+body.dark-mode .preview-info-title {
+  color: #a5d6a7;
+}
+
+.preview-info-count {
+  font-weight: 700;
+  color: #1b5e20;
+  font-size: 1.1rem;
+}
+
+body.dark-mode .preview-info-count {
+  color: #c8e6c9;
+}
+
+.preview-info-errors {
+  color: #c62828;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+body.dark-mode .preview-info-errors {
+  color: #ef5350;
+}
+
+.preview-info-details {
+  color: #388e3c;
+  text-align: center;
+}
+
+body.dark-mode .preview-info-details {
+  color: #a5d6a7;
+}
+
+.preview-info-details small {
+  font-size: 0.75rem;
+}
+
+.preview-info-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.preview-download-button,
+.preview-clear-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.preview-download-button {
+  background: #66bb6a;
+  color: #ffffff;
+}
+
+body.dark-mode .preview-download-button {
+  background: #81c784;
+  color: #1b5e20;
+}
+
+.preview-download-button:hover:not(:disabled) {
+  background: #4caf50;
+}
+
+body.dark-mode .preview-download-button:hover:not(:disabled) {
+  background: #a5d6a7;
+}
+
+.preview-download-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.preview-clear-button {
+  background: rgba(255, 255, 255, 0.5);
+  color: #2e7d32;
+}
+
+body.dark-mode .preview-clear-button {
+  background: rgba(0, 0, 0, 0.3);
+  color: #c8e6c9;
+}
+
+.preview-clear-button:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-mode .preview-clear-button:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+

@@ -1,0 +1,91 @@
+.upload-area {
+  border: 3px dashed #b0bec5;
+  border-radius: 12px;
+  padding: 60px 20px;
+  text-align: center;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+:global(body.dark-mode) .upload-area,
+:global(.dark-mode) .upload-area {
+  border-color: #546e7a;
+  background: #2d2d2d !important;
+}
+
+.upload-area:hover,
+.upload-area.drag-active {
+  border-color: #4dd0e1;
+  background: #e0f7fa;
+}
+
+:global(.dark-mode) .upload-area:hover,
+:global(.dark-mode) .upload-area.drag-active {
+  border-color: #1976d2;
+  background: #1e3a5f;
+}
+
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.upload-content svg {
+  color: #4dd0e1;
+  transition: color 0.3s ease;
+}
+
+:global(.dark-mode) .upload-content svg {
+  color: #64b5f6;
+}
+
+.upload-content h3 {
+  color: #424242;
+  font-size: 1.3rem;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+:global(.dark-mode) .upload-content h3 {
+  color: #e0e0e0;
+}
+
+.upload-content p {
+  color: #757575;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+:global(.dark-mode) .upload-content p {
+  color: #9e9e9e;
+}
+
+.browse-button {
+  margin-top: 10px;
+  padding: 10px 24px;
+  background: #4dd0e1;
+  color: #006064;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+:global(.dark-mode) .browse-button {
+  background: #1976d2;
+  color: #e3f2fd;
+}
+
+.browse-button:hover {
+  background: #26c6da;
+}
+
+:global(.dark-mode) .browse-button:hover {
+  background: #1565c0;
+}
+

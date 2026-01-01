@@ -1,0 +1,487 @@
+/* Batch Crop Modal - Overlay and Container */
+.batch-crop-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(3px);
+}
+
+.batch-crop-modal {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  width: 80vw;
+  max-width: 90vw;
+  height: 80vh;
+  max-height: 90vh;
+  min-width: 700px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-mode .batch-crop-modal {
+  background: #2d2d2d;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Controls Bar */
+.batch-crop-controls-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-shrink: 0;
+}
+
+body.dark-mode .batch-crop-controls-bar {
+  background: #1a1a1a;
+}
+
+.batch-crop-control-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.batch-crop-control-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #424242;
+  margin-right: 4px;
+}
+
+body.dark-mode .batch-crop-control-label {
+  color: #e0e0e0;
+}
+
+.batch-crop-control-button {
+  padding: 5px 10px;
+  border: 1px solid #4dd0e1;
+  background: #ffffff;
+  color: #00838f;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+body.dark-mode .batch-crop-control-button {
+  background: #2d2d2d;
+  border-color: #1976d2;
+  color: #81d4fa;
+}
+
+.batch-crop-control-button:hover {
+  background: #e0f7fa;
+  border-color: #26c6da;
+}
+
+body.dark-mode .batch-crop-control-button:hover {
+  background: #1a1a1a;
+  border-color: #42a5f5;
+}
+
+.batch-crop-control-button.active {
+  background: #4dd0e1;
+  color: #ffffff;
+  border-color: #4dd0e1;
+}
+
+body.dark-mode .batch-crop-control-button.active {
+  background: #1976d2;
+  color: #ffffff;
+  border-color: #1976d2;
+}
+
+.batch-crop-color-button.active {
+  font-weight: 700;
+}
+
+.batch-crop-move-button {
+  padding: 5px 12px;
+  border: 1px solid #4dd0e1;
+  background: #ffffff;
+  color: #00838f;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.batch-crop-move-button:hover {
+  background: #4dd0e1;
+  color: #ffffff;
+}
+
+body.dark-mode .batch-crop-move-button {
+  background: #2d2d2d;
+  border-color: #1976d2;
+  color: #81d4fa;
+}
+
+body.dark-mode .batch-crop-move-button:hover {
+  background: #1976d2;
+  color: #ffffff;
+}
+
+/* Content Area */
+.batch-crop-content-area {
+  display: flex;
+  flex: 1;
+  gap: 16px;
+  min-height: 0;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+/* Image List Sidebar */
+.batch-crop-image-list-sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+body.dark-mode .batch-crop-image-list-sidebar {
+  background: #1a1a1a;
+}
+
+.batch-crop-image-list-sidebar .batch-crop-image-list-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #424242;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+body.dark-mode .batch-crop-image-list-sidebar .batch-crop-image-list-title {
+  color: #e0e0e0;
+  border-bottom-color: #444;
+}
+
+.batch-crop-image-list-sidebar .batch-crop-image-list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.batch-crop-image-list-sidebar .batch-crop-image-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.batch-crop-image-list-sidebar .batch-crop-image-item:hover {
+  background: rgba(77, 208, 225, 0.15);
+}
+
+body.dark-mode .batch-crop-image-list-sidebar .batch-crop-image-item:hover {
+  background: rgba(25, 118, 210, 0.2);
+}
+
+.batch-crop-image-list-sidebar .batch-crop-image-check {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  text-align: center;
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #888;
+  margin-right: 4px;
+}
+
+.batch-crop-image-list-sidebar .batch-crop-image-item.included .batch-crop-image-check {
+  color: #4caf50;
+}
+
+.batch-crop-image-list-sidebar .batch-crop-image-name {
+  font-size: 0.8rem;
+  color: #555;
+  word-break: break-word;
+  line-height: 1.3;
+}
+
+body.dark-mode .batch-crop-image-list-sidebar .batch-crop-image-name {
+  color: #bbb;
+}
+
+/* Preview Container */
+.batch-crop-preview-container {
+  flex: 1;
+  position: relative;
+  background: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 300px;
+  max-height: 100%;
+}
+
+body.dark-mode .batch-crop-preview-container {
+  background: #1a1a1a;
+}
+
+.batch-crop-stack-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.batch-crop-stack-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.batch-crop-stack-image {
+  display: block;
+  position: absolute;
+}
+
+/* Bounds Box */
+.batch-crop-bounds-box {
+  position: absolute;
+  border: 2px dashed #888;
+  background: transparent;
+  pointer-events: none;
+  z-index: 50;
+  box-sizing: border-box;
+}
+
+body.dark-mode .batch-crop-bounds-box {
+  border-color: #aaa;
+}
+
+/* Crop Mask and Overlay */
+.batch-crop-mask {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.batch-crop-overlay {
+  position: absolute;
+  border: 3px solid #4dd0e1;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+  cursor: move;
+  pointer-events: all;
+  transition: border-color 0.2s ease;
+}
+
+.batch-crop-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: #4dd0e1;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  cursor: move;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Grid Lines */
+.crop-grid-line {
+  position: absolute;
+  background: #4dd0e1;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.crop-grid-line-vertical {
+  width: 2px;
+  height: 100%;
+  top: 0;
+}
+
+.crop-grid-line-horizontal {
+  height: 2px;
+  width: 100%;
+  left: 0;
+}
+
+.crop-grid-line-main {
+  opacity: 1;
+  width: 3px;
+}
+
+.crop-grid-line-horizontal.crop-grid-line-main {
+  height: 3px;
+  width: 100%;
+}
+
+/* Alignment Controls */
+.batch-crop-alignment-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Instructions */
+.batch-crop-instructions {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+body.dark-mode .batch-crop-instructions {
+  color: #aaa;
+}
+
+/* Actions */
+.batch-crop-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #e0e0e0;
+  flex-shrink: 0;
+}
+
+body.dark-mode .batch-crop-actions {
+  border-top-color: #424242;
+}
+
+.batch-crop-action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.batch-crop-cancel-button,
+.batch-crop-apply-button {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.batch-crop-cancel-button {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.batch-crop-cancel-button:hover {
+  background: #e0e0e0;
+}
+
+body.dark-mode .batch-crop-cancel-button {
+  background: #424242;
+  color: #aaa;
+}
+
+body.dark-mode .batch-crop-cancel-button:hover {
+  background: #555;
+}
+
+.batch-crop-apply-button {
+  background: #4dd0e1;
+  color: #ffffff;
+}
+
+.batch-crop-apply-button:hover {
+  background: #26c6da;
+}
+
+.batch-crop-apply-button:disabled {
+  background: #ccc;
+  color: #999;
+  cursor: not-allowed;
+}
+
+body.dark-mode .batch-crop-apply-button {
+  background: #1976d2;
+}
+
+body.dark-mode .batch-crop-apply-button:hover {
+  background: #1565c0;
+}
+
+body.dark-mode .batch-crop-apply-button:disabled {
+  background: #424242;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .batch-crop-modal {
+    width: 95vw;
+    max-width: 95vw;
+    height: 90vh;
+    max-height: 90vh;
+    min-width: unset;
+    min-height: unset;
+    padding: 16px;
+  }
+
+  .batch-crop-controls-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .batch-crop-content-area {
+    flex-direction: column;
+  }
+
+  .batch-crop-image-list-sidebar {
+    width: 100%;
+    max-height: 120px;
+    flex-shrink: 0;
+  }
+}
+

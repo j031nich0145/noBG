@@ -1,0 +1,175 @@
+.batch-info-box {
+  padding: 15px;
+  background: #e0f7fa;
+  border-radius: 8px;
+  color: #00838f;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  flex-shrink: 0;
+}
+
+body.dark-mode .batch-info-box {
+  background: #1e3a5f;
+  color: #81d4fa;
+}
+
+.batch-info-box small {
+  display: block;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.batch-info-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.batch-info-left,
+.batch-info-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nav-mode-button {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #00838f;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .nav-mode-button {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #81d4fa;
+}
+
+.nav-mode-button:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+body.dark-mode .nav-mode-button:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.nav-mode-button.active {
+  background: rgba(255, 255, 255, 0.6);
+  color: #006064;
+  font-weight: 700;
+}
+
+body.dark-mode .nav-mode-button.active {
+  background: rgba(0, 0, 0, 0.5);
+  color: #90caf9;
+}
+
+.batch-refine-button-info,
+.batch-crop-button-info,
+.process-all-button-info,
+.clear-button-info {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #00838f;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .batch-refine-button-info,
+body.dark-mode .batch-crop-button-info,
+body.dark-mode .process-all-button-info,
+body.dark-mode .clear-button-info {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #81d4fa;
+}
+
+.batch-refine-button-info:hover,
+.batch-crop-button-info:hover,
+.process-all-button-info:hover,
+.clear-button-info:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+body.dark-mode .batch-refine-button-info:hover,
+body.dark-mode .batch-crop-button-info:hover,
+body.dark-mode .process-all-button-info:hover,
+body.dark-mode .clear-button-info:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.process-all-button-info {
+  background: #4dd0e1;
+  color: #006064;
+  border-color: #4dd0e1;
+}
+
+body.dark-mode .process-all-button-info {
+  background: #1976d2;
+  color: #e3f2fd;
+  border-color: #1976d2;
+}
+
+.process-all-button-info:hover {
+  background: #26c6da;
+}
+
+body.dark-mode .process-all-button-info:hover {
+  background: #1565c0;
+}
+
+.upload-button-info,
+.download-button-info,
+.theme-toggle-info {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .upload-button-info,
+body.dark-mode .download-button-info,
+body.dark-mode .theme-toggle-info {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.upload-button-info:hover,
+.download-button-info:hover,
+.theme-toggle-info:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+body.dark-mode .upload-button-info:hover,
+body.dark-mode .download-button-info:hover,
+body.dark-mode .theme-toggle-info:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.download-button-info.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.download-button-info.disabled:hover {
+  transform: none;
+}
+
