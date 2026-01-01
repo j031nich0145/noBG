@@ -15,6 +15,7 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
+  padding-bottom: 180px; /* Space for fixed info box and footer */
   gap: 15px;
   max-width: 1400px;
   margin: 0 auto;
@@ -23,57 +24,81 @@
   min-height: 0;
 }
 
-.nobg-batch-footer {
-  padding: 15px 20px;
-  background-color: #e0e0e0;
-  color: #616161;
-  font-size: 0.85rem;
+.nobg-batch-page .app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 20px;
   text-align: center;
-  border-top: 1px solid #cfcfcf;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-  flex-shrink: 0;
+  background: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.85rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  z-index: 50;
 }
 
-.nobg-batch-page.dark-mode .nobg-batch-footer {
-  background-color: #212121;
-  color: #a0a0a0;
-  border-top-color: #333333;
+.nobg-batch-page.dark-mode .app-footer {
+  background: #2d2d2d;
+  border-top-color: #404040;
 }
 
-.nobg-batch-footer .footer-separator {
+.nobg-batch-page .footer-link {
+  color: #00838f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nobg-batch-page.dark-mode .footer-link {
+  color: #64b5f6;
+}
+
+.nobg-batch-page .footer-link:hover {
+  color: #006064;
+  text-decoration: underline;
+}
+
+.nobg-batch-page.dark-mode .footer-link:hover {
+  color: #90caf9;
+}
+
+.nobg-batch-page .footer-separator {
+  margin: 0 10px;
   color: #9e9e9e;
 }
 
-.nobg-batch-page.dark-mode .nobg-batch-footer .footer-separator {
-  color: #757575;
+.nobg-batch-page.dark-mode .footer-separator {
+  color: #616161;
 }
 
-.nobg-batch-footer .footer-info-button {
+.nobg-batch-page .footer-info-button {
   background: none;
   border: none;
   color: #00838f;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   cursor: pointer;
-  padding: 0 5px;
-  transition: color 0.2s ease, transform 0.2s ease;
+  padding: 0;
+  margin: 0;
+  transition: color 0.3s ease, transform 0.2s ease;
+  line-height: 1;
+  vertical-align: middle;
 }
 
-.nobg-batch-page.dark-mode .nobg-batch-footer .footer-info-button {
-  color: #81d4fa;
+.nobg-batch-page.dark-mode .footer-info-button {
+  color: #64b5f6;
 }
 
-.nobg-batch-footer .footer-info-button:hover {
+.nobg-batch-page .footer-info-button:hover {
   color: #006064;
   transform: scale(1.1);
 }
 
-.nobg-batch-page.dark-mode .nobg-batch-footer .footer-info-button:hover {
+.nobg-batch-page.dark-mode .footer-info-button:hover {
   color: #90caf9;
+}
+
+.nobg-batch-page .footer-info-button:active {
+  transform: scale(0.95);
 }
 
 @media (max-width: 768px) {

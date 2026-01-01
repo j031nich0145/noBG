@@ -11,7 +11,8 @@ import { getSettings, saveSettings } from '../utils/settings-manager'
 import { 
   loadMainImage, 
   getProcessedImageUrl, 
-  getProcessedImageInfo, 
+  getProcessedImageInfo,
+  loadProcessedImage,
   saveBatchImages, 
   loadBatchImages, 
   clearBatchImages 
@@ -44,6 +45,7 @@ function NoBGBatch() {
   // Settings from single mode
   const [threshold, setThreshold] = useState(50)
   const [removalMethod, setRemovalMethod] = useState('edge-detect')
+  const [processedImageInfo, setProcessedImageInfo] = useState(null)
   
   // Modal states
   const [showInfoModal, setShowInfoModal] = useState(false)
@@ -68,10 +70,19 @@ function NoBGBatch() {
   // Load target image and settings on mount
   useEffect(() => {
     const loadData = async () => {
-      // Load settings
-      const settings = getSettings()
-      setThreshold(settings.removalThreshold || 50)
-      setRemovalMethod(settings.removalMethod || 'edge-detect')
+      // Load processed image info first (contains actual settings used for target image)
+      const processedData = await loadProcessedImage()
+      if (processedData?.imageInfo) {
+        setProcessedImageInfo(processedData.imageInfo)
+        // Use these settings for batch processing (prefer processed image info)
+        setThreshold(processedData.imageInfo.threshold || 50)
+        setRemovalMethod(processedData.imageInfo.removalMethod || 'edge-detect')
+      } else {
+        // Fallback to saved settings if no processed image info
+        const settings = getSettings()
+        setThreshold(settings.removalThreshold || 50)
+        setRemovalMethod(settings.removalMethod || 'edge-detect')
+      }
       
       // Load target image from single mode
       const mainImage = await loadMainImage()
@@ -427,16 +438,30 @@ function NoBGBatch() {
       </div>
       
       {/* Footer */}
-      <footer className="nobg-batch-footer">
-        <span>noBG Batch</span>
-        <span className="footer-separator">|</span>
+      <footer className="app-footer">
         <button 
           className="footer-info-button" 
           onClick={() => setShowInfoModal(true)}
-          title="Usage Guide"
+          title="App Usage Guide"
         >
-          ℹ️
+          ⓘ
         </button>
+        <span className="footer-separator">•</span>
+        <a href="#" className="footer-link">Background Removal Tool</a>
+        <span className="footer-separator">•</span>
+        <a href="https://github.com/j031nich0145/j031nich0145/blob/main/LICENSING.md" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           className="footer-link">
+          Commercial Use License
+        </a>
+        <span className="footer-separator">•</span>
+        <a href="https://github.com/j031nich0145/j031nich0145/" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           className="footer-link">
+          Buy Us Coffee
+        </a>
       </footer>
       
       {/* Modals */}
